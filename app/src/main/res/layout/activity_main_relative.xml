@@ -8,6 +8,7 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/text_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/hello_message"
@@ -17,30 +18,37 @@
         android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/text_view"
         android:text="@string/ButtonText"/>
     <!--图片显示不出来-->
     <Button
         android:id="@+id/button2"
         android:src="@drawable/flag"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/button1"
+        android:layout_toRightOf="@+id/button1"/>
 
     <CheckBox
-        android:id="@+id/checkbox1"
+        android:id="@+id/checkbox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/button1"
         android:text="@string/checkout_text"/>
 
     <Switch
         android:id="@+id/switch1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignTop="@id/checkbox"
+        android:layout_toRightOf="@+id/checkbox"
         android:text="@string/switch_text" />
 
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/checkbox"
         android:hint="@string/edit_text_hint"
         android:inputType="textPersonName"/>
 </RelativeLayout>
