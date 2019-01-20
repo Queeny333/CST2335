@@ -2,5 +2,6 @@
     <string name="app_name">Lab1</string>
     <string name="hello_message">Here are my widgets:</string>
     <string name="ButtonText">BUTTON</string>
+    <string name="edit_text_hint">Type your answer in here</string>
 
 </resources>

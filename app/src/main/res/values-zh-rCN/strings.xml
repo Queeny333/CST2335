@@ -3,4 +3,5 @@
     <string name="app_name">lab1</string>
     <string name="hello_message">这是我的小工具：</string>
     <string name="ButtonText">按钮</string>
+    <string name="edit_text_hint">请在此处键入答案</string>
 </resources>
