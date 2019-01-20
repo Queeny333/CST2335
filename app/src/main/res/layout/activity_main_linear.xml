@@ -8,7 +8,7 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/hello_message"
         android:textSize= "30dp"
@@ -17,40 +17,62 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="110dp"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/ButtonText"
-        android:layout_columnWeight="0.5"
-        tools:layout_editor_absoluteX="155dp"
-        tools:layout_editor_absoluteY="410dp" />
+        tools:context=".MainActivity">
+        <!--按钮2的高度是按钮1的两倍-->
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="fill"
+            android:text="@string/ButtonText"/>
+        <!--图片显示不出来-->
+        <Button
+            android:id="@+id/button2"
+            android:src="@drawable/flag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="fill"/>
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="110dp"
+    </LinearLayout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/flag"
-        android:layout_columnWeight="0.5"
-        tools:layout_editor_absoluteX="155dp"
-        tools:layout_editor_absoluteY="410dp" />
+        tools:context=".MainActivity">
 
-    <CheckBox
-        android:id="@+id/checkbox1"
-        android:layout_width="110dp"
-        android:text="Check this out!"
-        android:layout_height="wrap_content" />
+        <CheckBox
+            android:id="@+id/checkbox1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="fill"
+            android:text="@string/checkout_text"/>
 
-    <Switch
-        android:id="@+id/switch1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Switch on/off" />
+        <Switch
+            android:id="@+id/switch1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="fill"
+            android:text="@string/switch_text" />
+
+    </LinearLayout>
 
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint=""
+        android:hint="@string/edit_text_hint"
         android:inputType="textPersonName"
         />
 
