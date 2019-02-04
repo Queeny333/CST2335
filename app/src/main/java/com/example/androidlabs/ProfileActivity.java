@@ -2,44 +2,85 @@ package com.example.androidlabs;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import android.util.Log;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 
-import com.example.androidlabs.R;
-
 public class ProfileActivity extends AppCompatActivity {
-    static final int REQUEST_IMAGE_CAPTURE = 1;
-    private EditText name, email;
-    ImageButton imgBT;
+
+    //declare variables
+    ImageButton mImageButton;
+    String previousTyped;
+    EditText editEmail;
+    public static final String ACTIVITY_NAME = "PROFILE_ACTIVITY";
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.profile_activity);
+        setContentView(R.layout.profile_layout);
 
-        //instantialize components from layout file
-        name = findViewById(R.id.profile_edit_text_name);
-        email = findViewById(R.id.profile_edit_text_email);
-        imgBT = findViewById(R.id.imgButton);
+        //get email address from the last page
+        Intent fromPrevious = getIntent();
+        previousTyped = fromPrevious.getStringExtra("typed");
 
-        imgBT.setOnClickListener( v ->{
-            Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-            if(takePictureIntent.resolveActivity(getPackageManager())!= null){
-                startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
-            }
+        editEmail = (EditText) findViewById(R.id.inEmail);
+        editEmail.setText(previousTyped);
+
+        //give the image button action to take a picture
+        mImageButton = (ImageButton) findViewById(R.id.inPicture);
+        mImageButton.setOnClickListener(m -> {
+            dispatchTakePictureIntent();
         });
+        Log.e(ACTIVITY_NAME, "In function: onCreate");
+    }
 
+    //the function of take a picture
+    static final int REQUEST_IMAGE_CAPTURE = 1;
+    private void dispatchTakePictureIntent(){
+        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        if(takePictureIntent.resolveActivity(getPackageManager()) != null){
+            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+        }
+    }
+
+    //if the picture is good, it will be saved under the name "data"
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
+            Bundle extras = data.getExtras();
+            Bitmap imageBitmap = (Bitmap) extras.get("data");
+            mImageButton.setImageBitmap(imageBitmap);
+        }
+        Log.e(ACTIVITY_NAME, "In function: onActivityResult");
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        if(requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK){
-            Bundle ex = data.getExtras();
-            Bitmap bitmap = (Bitmap) ex.get("data");
-            imgBT.setImageBitmap(bitmap);
-        }
+    protected void onDestroy(){
+        super.onDestroy();
+        Log.e(ACTIVITY_NAME, "In fuction: onDestroy");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.e(ACTIVITY_NAME, "In fuction: onDestroy");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.e(ACTIVITY_NAME, "In fuction: onDestroy");
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.e(ACTIVITY_NAME, "In fuction: onDestroy");
     }
 }

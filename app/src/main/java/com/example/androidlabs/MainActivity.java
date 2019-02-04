@@ -1,52 +1,74 @@
 package com.example.androidlabs;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android .util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
-    private EditText userID, passWord;
-    private Button login;
+
+    //declare the variables
+    EditText inputEmail;
+    Button loginButton;
     SharedPreferences sp;
+    String saveString;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.login_activity);
-        userID = findViewById(R.id.email);
-        passWord =findViewById(R.id.password);
-        login = findViewById(R.id.login);
+        setContentView(R.layout.activity_main);
 
-        //load the SharedPreferences and load the user’s email address under the reservation name you used.
-        // If nothing is reserved, use the empty string “” as the default value.
-        sp = getSharedPreferences("Default Email", getApplicationContext().MODE_PRIVATE);
-        String email = sp.getString("Default Email", "");
-        userID.setText(email);
-
-        login.setOnClickListener(e->{
-            Intent loginIntent = new Intent(LoginActivity.this, ProfileActivity.class);
-            this.startActivity(loginIntent);
+        //give the login button action of going to the Profile page
+        inputEmail = (EditText) findViewById(R.id.inputemail);
+        loginButton = (Button) findViewById(R.id.login);
+        loginButton.setOnClickListener(b -> {
+            Intent nextPage = new Intent(MainActivity.this, ProfileActivity.class);
+            //get the email address which is typed in the login page to also be shown int the profile page
+            nextPage.putExtra("typed", inputEmail.getText().toString());
+            startActivityForResult(nextPage, 1);
         });
 
-    }
+        sp = getSharedPreferences("EmailAddress", Context.MODE_PRIVATE);
+        saveString = sp.getString("Email", "");
+        inputEmail.setText(saveString);
+        }
 
+        @Override
+        protected void onPause () {
+            super.onPause();
 
-    @Override
-    protected void onPause(){
-        super.onPause();
-        sp = getSharedPreferences("Default Email", getApplicationContext().MODE_PRIVATE);
-        SharedPreferences.Editor  edit = sp.edit();
-        edit.putString("Default Email",userID.getText().toString());
-        edit.commit();
+            //get an editor object
+            SharedPreferences.Editor editor = sp.edit();
+
+            //save what was typed under the name "Email"
+            String whatWasTyped = inputEmail.getText().toString();
+            editor.putString("Email", whatWasTyped);
+
+            //write it to disk
+            editor.commit();
+        }
+
+        @Override
+        protected void onDestroy(){
+            super.onDestroy();
+        }
+
+        @Override
+        protected void onStop() {
+            super.onStop();
+        }
+
+        @Override
+        protected void onResume() {
+            super.onResume();
+        }
+
+        @Override
+        protected void onStart() {
+            super.onStart();
+        }
     }
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        //the first function is onCreate, it is equal to java main method
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_linear);
-    }
-}

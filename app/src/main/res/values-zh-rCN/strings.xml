@@ -6,4 +6,15 @@
     <string name="checkout_text">请确认！</string>
     <string name="switch_text">切换 开/关</string>
     <string name="edit_text_hint">请在此处键入答案</string>
+    <string name="email1">请输入邮箱地址：</string>
+    <string name="inemail">在此输入邮箱</string>
+    <string name="password">键入你的密码：</string>
+    <string name="login">登录</string>
+    <string name="profile">你的信息</string>
+    <string name="pname">你的姓名:</string>
+    <string name="hname">输入你的姓名</string>
+    <string name="pemail">你的邮箱：</string>
+    <string name="hemail">输入你的邮箱</string>
+    <string name="ppicture">你的图片：</string>
+    <string name="click">点击上方按钮拍照</string>
 </resources>
