@@ -44,8 +44,7 @@
     <ImageButton
         android:id="@+id/inPicture"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:src="@android:drawable/picture_frame"/>
+        android:layout_height="wrap_content" />
 
     <TextView
         android:id="@+id/clickb"

@@ -24,7 +24,7 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.profile_layout);
 
-        //get email address from the last page
+        //get email address from the previous page
         Intent fromPrevious = getIntent();
         previousTyped = fromPrevious.getStringExtra("typed");
 
