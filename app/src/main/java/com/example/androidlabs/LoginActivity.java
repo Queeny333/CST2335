@@ -1,7 +1,5 @@
 package com.example.androidlabs;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -9,9 +7,9 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class MainActivity extends AppCompatActivity {
-    private EditText userID, passWord;
-    private Button login;
+public class LoginActivity extends Activity {
+        private EditText userID, passWord;
+        private Button login;
     SharedPreferences sp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,15 +36,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onPause(){
         super.onPause();
-        sp = getSharedPreferences("Default Email", getApplicationContext().MODE_PRIVATE);
+         sp = getSharedPreferences("Default Email", getApplicationContext().MODE_PRIVATE);
         SharedPreferences.Editor  edit = sp.edit();
         edit.putString("Default Email",userID.getText().toString());
         edit.commit();
-    }
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        //the first function is onCreate, it is equal to java main method
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_linear);
     }
 }

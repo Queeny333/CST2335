@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".LoginActivity">
+    <TextView
+        android:id="@+id/profile_title"
+        android:layout_height='30dp'
+        android:layout_width='match_parent'
+        android:text="Your profile"/>
+    <TextView
+        android:id="@+id/profile_text_view_name"
+        android:layout_height='40dp'
+        android:layout_width='match_parent'
+        android:text="Your name:"/>
+    <EditText
+        android:id="@+id/profile_edit_text_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter your name"
+        android:inputType="textPersonName"
+        />
+    <TextView
+        android:id="@+id/profile_text_view_email"
+        android:layout_height='40dp'
+        android:layout_width='match_parent'
+        android:text="Your email"/>
+    <EditText
+        android:id="@+id/profile_edit_text_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter your email"
+        android:inputType="textEmailAddress"/>
+    <TextView
+        android:id="@+id/profile_text_view_picture"
+        android:layout_height='50dp'
+        android:layout_width='match_parent'
+        android:text="Your picture:"/>
+    <ImageButton
+        android:id="@+id/imgButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@android:drawable/picture_frame"/>
+    <TextView
+        android:id="@+id/login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Click the button above to take a picture"/>
+
+</LinearLayout>
