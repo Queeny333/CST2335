@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
         loginButton = (Button) findViewById(R.id.login);
         loginButton.setOnClickListener(b -> {
             Intent nextPage = new Intent(MainActivity.this, ProfileActivity.class);
+
             //get the email address which is typed in the login page to also be shown int the profile page
             nextPage.putExtra("typed", inputEmail.getText().toString());
             startActivityForResult(nextPage, 1);

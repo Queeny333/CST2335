@@ -57,30 +57,30 @@ public class ProfileActivity extends AppCompatActivity {
             Bitmap imageBitmap = (Bitmap) extras.get("data");
             mImageButton.setImageBitmap(imageBitmap);
         }
+
         Log.e(ACTIVITY_NAME, "In function: onActivityResult");
     }
 
-    @Override
-    protected void onDestroy(){
+    protected void onDestroy() {
         super.onDestroy();
-        Log.e(ACTIVITY_NAME, "In fuction: onDestroy");
+        Log.e(ACTIVITY_NAME,"In function: onDestroy");
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        Log.e(ACTIVITY_NAME, "In fuction: onDestroy");
+        Log.e(ACTIVITY_NAME, "In fuction: onStop");
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        Log.e(ACTIVITY_NAME, "In fuction: onDestroy");
+        Log.e(ACTIVITY_NAME, "In fuction: onResume");
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        Log.e(ACTIVITY_NAME, "In fuction: onDestroy");
+        Log.e(ACTIVITY_NAME, "In fuction: onStart");
     }
 }
