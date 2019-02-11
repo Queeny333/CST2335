@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">lab3</string>
+    <string name="app_name">lab4</string>
     <string name="hello_message">这是我的小工具：</string>
     <string name="ButtonText">按钮</string>
     <string name="checkout_text">请确认！</string>
@@ -17,4 +17,9 @@
     <string name="hemail">输入你的邮箱</string>
     <string name="ppicture">你的图片：</string>
     <string name="click">点击上方按钮拍照</string>
+    <string name="goToChart">转到聊天</string>
+    <string name="send">发送</string>
+    <string name="typeHere">在此输入</string>
+    <string name="receive">接收</string>
+
 </resources>

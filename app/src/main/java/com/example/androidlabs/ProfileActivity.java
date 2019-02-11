@@ -17,6 +17,7 @@ public class ProfileActivity extends AppCompatActivity {
     ImageButton mImageButton;
     String previousTyped;
     EditText editEmail;
+    Button goToChartButton;
     public static final String ACTIVITY_NAME = "PROFILE_ACTIVITY";
 
     @Override
@@ -36,8 +37,16 @@ public class ProfileActivity extends AppCompatActivity {
         mImageButton.setOnClickListener(m -> {
             dispatchTakePictureIntent();
         });
+
+        goToChartButton = (Button) findViewById(R.id.gochart);
+        goToChartButton.setOnClickListener(b -> {
+            Intent nextPage = new Intent(ProfileActivity.this, ChatRoomActivity.class);
+            startActivity(nextPage);
+        });
+
         Log.e(ACTIVITY_NAME, "In function: onCreate");
     }
+
 
     //the function of take a picture
     static final int REQUEST_IMAGE_CAPTURE = 1;
