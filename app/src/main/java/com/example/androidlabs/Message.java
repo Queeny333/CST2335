@@ -1,12 +1,11 @@
 package com.example.androidlabs;
 
-import android.app.Activity;
-
 public class Message{
     private String message;
     private Role role;
 
-    Message(String message, Role role){
+    public Message(String message, Role role) {
+        this.message = message;
         this.role = role;
     }
 

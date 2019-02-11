@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,7 +29,7 @@ public class ChatRoomActivity extends AppCompatActivity {
         listView = findViewById(R.id.chartList);
         ButtonSend = findViewById(R.id.ButtonSend);
         ButtonReceive = findViewById(R.id.ButtonReceive);
-        msgEditText = findViewById(R.id.EditText);
+        msgEditText = findViewById(R.id.messageEditText);
 
         final ChatAdapter messageAdapter = new ChatAdapter(this, 0);
         listView.setAdapter(messageAdapter);
@@ -36,11 +37,13 @@ public class ChatRoomActivity extends AppCompatActivity {
         ButtonSend.setOnClickListener(v -> {
             messages.add(new Message(msgEditText.getText().toString(), Message.Role.SEND));
             msgEditText.setText("");
+            messageAdapter.notifyDataSetChanged();
         });
 
         ButtonReceive.setOnClickListener(v -> {
             messages.add(new Message(msgEditText.getText().toString(), Message.Role.RECIEVE));
             msgEditText.setText("");
+            messageAdapter.notifyDataSetChanged();
         });
     }
 
@@ -70,6 +73,7 @@ public class ChatRoomActivity extends AppCompatActivity {
             }
 
             TextView msgTextView = newView.findViewById(R.id.messageText);
+
             msgTextView.setText(message.getMessage());
 
             return newView;
