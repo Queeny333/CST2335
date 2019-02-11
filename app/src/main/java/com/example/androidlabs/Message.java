@@ -1,7 +1,5 @@
 package com.example.androidlabs;
 
-import android.app.Activity;
-
 public class Message{
     private String message;
     private Role role;
