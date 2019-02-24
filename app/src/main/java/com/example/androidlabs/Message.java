@@ -4,6 +4,16 @@ public class Message{
     private String message;
     private Role role;
 
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    private long id;
+
     public Message(String message, Role role) {
         this.message = message;
         this.role = role;
