@@ -18,6 +18,7 @@ public class ProfileActivity extends AppCompatActivity {
     String previousTyped;
     EditText editEmail;
     Button goToChartButton;
+    Button goToToolbarButton;
     public static final String ACTIVITY_NAME = "PROFILE_ACTIVITY";
 
     @Override
@@ -42,6 +43,18 @@ public class ProfileActivity extends AppCompatActivity {
         goToChartButton.setOnClickListener(b -> {
             Intent nextPage = new Intent(ProfileActivity.this, ChatRoomActivity.class);
             startActivity(nextPage);
+        });
+
+        goToToolbarButton = (Button) findViewById(R.id.gotoToolbar);
+        goToToolbarButton.setOnClickListener(b -> {
+            Intent nextPage1 = new Intent(ProfileActivity.this, TestToolbar.class);
+            startActivity(nextPage1);
+        });
+
+        Button gotoWeatherForecast = (Button) findViewById(R.id.gotoWeatherForecast);
+        gotoWeatherForecast.setOnClickListener(b -> {
+            Intent weatherpage = new Intent(ProfileActivity.this, WeatherForecast.class);
+            startActivity(weatherpage);
         });
 
         Log.e(ACTIVITY_NAME, "In function: onCreate");

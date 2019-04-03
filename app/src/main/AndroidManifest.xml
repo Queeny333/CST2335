@@ -15,6 +15,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".WeatherForecast"></activity>
         <activity android:name=".TestToolbar" />
+        <activity android:name=".DetailActivity" />
         <activity android:name=".ChatRoomActivity" />
         <activity android:name=".ProfileActivity" />
         <activity android:name=".MainActivity">

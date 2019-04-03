@@ -1,5 +1,6 @@
 package com.example.androidlabs;
 
+import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -11,8 +12,6 @@ import com.example.androidlabs.ChatRoomActivity;
 
 
     public class ChatDataBaseHelper extends SQLiteOpenHelper {
-
-
         private SQLiteDatabase database;
         public static final String DATABASE_NAME = "ChatDB";
         public static final int VERSION_NUM = 1;
@@ -20,55 +19,38 @@ import com.example.androidlabs.ChatRoomActivity;
 
         public static final String COL_ID = "id";
         public static final String COL_MESSAGE = "message";
-        public static final String COL_ROLE = "role";
+        public static final String COL_SEND = "isSent";
 
-
-
-
-
-
-        public ChatDataBaseHelper(Context context) {
-            super(context, DATABASE_NAME, null, VERSION_NUM);
+        public ChatDataBaseHelper(Activity ctx){
+            super(ctx, DATABASE_NAME,null,VERSION_NUM);
         }
 
         @Override
         public void onCreate(SQLiteDatabase db) {
 
-            db.execSQL("CREATE TABLE " + TABLE_NAME + "(" +
-                    COL_ID + " INTEGER 	PRIMARY KEY AUTOINCREMENT, " +
-                    COL_MESSAGE + " TEXT, " + COL_ROLE + " TEXT )");
-
-
-
+            db.execSQL("CREATE TABLE " + TABLE_NAME + "( " + COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+                    + COL_MESSAGE + " TEXT, "+ COL_SEND + " TEXT) ");
         }
 
         @Override
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-            Log.i("Database upgrade", "Old version: " + oldVersion + " New version: " + newVersion);
+
+            Log.i("Database upgrade", "old version: " + oldVersion + "  newVersion" + newVersion);
+
             db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
+
             onCreate(db);
         }
 
-        @Override
-        public void onOpen(SQLiteDatabase db) {
-            database = db;
-        }
+        public void onDowngrade(SQLiteDatabase db, int oldVersion, int newVersion)
+        {
+            Log.i("Database downgrade", "Old version:" + oldVersion + " newVersion:"+newVersion);
 
-        //insert message into DB
-        public void insertMessage(String message, String role) {
-            ContentValues values = new ContentValues();
-            values.put(COL_MESSAGE, message);
-            values.put(COL_ROLE, role);
-            database.insert(TABLE_NAME, null, values);
-            Log.d("DATABASE INSERT DATA","=="+ role);
-        }
+            //Delete the old table:
+            db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
 
-
-        // read message from BD with role
-        public Cursor getMessages(){
-
-
-            return database.query(false, TABLE_NAME,null,null,null,null,null,null,null) ;
+            //Create a new table:
+            onCreate(db);
         }
     }
 

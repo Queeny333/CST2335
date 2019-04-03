@@ -1,41 +1,49 @@
 package com.example.androidlabs;
 
-public class Message{
+public class Message {
     private String message;
-    private Role role;
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
+    //private Role role;
     private long id;
+    private boolean isSent;
 
-    public Message(String message, Role role) {
+    Message(long id, String message, boolean isSent) {
         this.message = message;
-        this.role = role;
+        //this.role = role;
+        this.id = id;
+        this.isSent = isSent;
     }
 
-    public String getMessage(){
+    public String getMessage() {
         return message;
     }
 
-    public void setMessage(String message){
+    public void setMessage(String message) {
         this.message = message;
     }
 
-    public Role getRole(){
+    public long getId(){
+        return id;
+    }
+    public void setId(long id){
+        this.id = id;
+    }
+    public boolean getIsSent(){
+        return isSent;
+    }
+    public void setIsSent(boolean isSent){
+        this.isSent = isSent;
+    }
+
+/*
+    public Role getRole() {
         return role;
     }
-
-    public void setRole(Role role){
+    public void setRole(Role role) {
         this.role = role;
     }
+*/
 
-    enum Role{
+ /*   enum Role {
         SEND, RECIEVE
-    }
+    }*/
 }

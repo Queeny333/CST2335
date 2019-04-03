@@ -41,10 +41,10 @@ public class WeatherForecast extends Activity {
     private ImageView weatherImage;
 
     protected static final String ACTIVITY_NAME = "WeatherForecast";
-//key:cf9edf1e33ff293c931f4f1b716aabbe   URL_XML , URL_UV
-    protected static final String URL_XML = "http://api.openweathermap.org/data/2.5/weather?q=ottawa,ca&APPID=cf9edf1e33ff293c931f4f1b716aabbe&mode=xml&units=metric";
+
+    protected static final String URL_XML = "http://api.openweathermap.org/data/2.5/weather?q=ottawa,ca&APPID=0ec96542f641446f13c2b88bdab89706&mode=xml&units=metric";
     protected static final String URL_IMG = "http://openweathermap.org/img/w/";
-    protected static  String URL_UV = "http://api.openweathermap.org/data/2.5/uvi?appid=cf9edf1e33ff293c931f4f1b716aabbe";
+    protected static  String URL_UV = "http://api.openweathermap.org/data/2.5/uvi?appid=0ec96542f641446f13c2b88bdab89706";
 
     @Override
     protected void onCreate(Bundle savedInstanceState){

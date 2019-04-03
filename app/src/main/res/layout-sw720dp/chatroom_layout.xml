@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+   >
+
+    <ListView
+        android:id="@+id/chartList"
+        android:layout_width="500dp"
+        android:layout_height="match_parent" />
+
+    <Button
+        android:id="@+id/ButtonSend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:text="@string/send" />
+
+    <EditText
+            android:id="@+id/messageEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@id/ButtonSend"
+            android:hint="@string/typeHere"
+            android:inputType="text"/>
+
+    <Button
+        android:id="@+id/ButtonReceive"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:text="@string/receive" />
+
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_toEndOf="@id/chartList"
+        android:layout_alignParentRight="true"
+        android:layout_alignRight="@id/ButtonReceive">
+
+    </FrameLayout>
+
+</RelativeLayout>

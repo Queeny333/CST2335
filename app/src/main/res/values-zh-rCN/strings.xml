@@ -21,5 +21,10 @@
     <string name="send">发送</string>
     <string name="typeHere">在此输入</string>
     <string name="receive">接收</string>
+    <string name="currTemp">zu:</string>
+    <string name="minTemp">min temp:</string>
+    <string name="maxTemp">max temp:</string>
+    <string name="UV_rating">wind speed:</string>
+    <string name="weather_forecast">weather forecast</string>
 
 </resources>

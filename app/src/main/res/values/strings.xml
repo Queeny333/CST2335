@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Lab4</string>
+    <string name="app_name">Lab6</string>
     <string name="hello_message">Here are my widgets:</string>
     <string name="ButtonText">BUTTON</string>
     <string name="checkout_text">Check this out!</string>
@@ -20,5 +20,12 @@
     <string name="send">Send</string>
     <string name="typeHere">Type here</string>
     <string name="receive">Receive</string>
+    <string name="currTemp">currnet temp: </string>
+    <string name="minTemp">min temp: </string>
+    <string name="maxTemp">max temp: </string>
+    <string name="UV_rating">UVRATING: </string>
+    <string name="weather_forecast">weather forecast</string>
+    <string name="wind_speed">wind speed: </string>
+    <string name="detele_this_message">Delete</string>
 
 </resources>

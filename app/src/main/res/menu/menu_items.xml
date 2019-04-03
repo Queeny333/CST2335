@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".TestToolbar">
+
+    <item
+        android:id="@+id/choice1"
+        android:orderInCategory="300"
+        android:title="overflow"
+        android:icon="@drawable/icons8_choice1"
+        app:showAsAction="always"></item>
+    <item
+        android:id="@+id/choice2"
+        android:orderInCategory="300"
+        android:title="message"
+        android:icon="@drawable/icons8_choice3"
+        app:showAsAction="always"></item>
+    <item
+        android:id="@+id/choice3"
+        android:orderInCategory="300"
+        android:title="goback"
+        android:icon="@drawable/icons8_choice1"
+        app:showAsAction="always"></item>
+    <item
+        android:id="@+id/choice4"
+        android:orderInCategory="300"
+        android:title="overflow"
+        android:icon="@drawable/icons8_choice1"
+        app:showAsAction="never"></item>
+
+</menu>
